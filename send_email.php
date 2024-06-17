@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Conteúdo do e-mail
         $mail->isHTML(true);
-        $mail->Subject = "Novo pedido de orçamento de $nome";
+        $mail->Subject = "Novo email de $nome sobre a P2J";
         $mail->Body = "
             <h1>Novo pedido de orçamento</h1>
             <p><strong>Nome:</strong> $nome</p>
