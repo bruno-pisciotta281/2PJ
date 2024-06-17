@@ -16,22 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Configurações do servidor SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Servidor SMTP
-        $mail->SMTPAuth = true;
-        $mail->Username = 'brunopisciotta43@gmail.com'; // Seu endereço de email SMTP
-        $mail->Password = 'hgui nqui cfod kqqw'; // Sua senha de email SMTP
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+           // Configurações do servidor SMTP
+           $mail->isSMTP();
+           $mail->Host = 'smtp.gmail.com'; // Servidor SMTP
+           $mail->SMTPAuth = true;
+           $mail->Username = 'brunopisciotta43@gmail.com'; // Seu endereço de email SMTP
+           $mail->Password = 'hgui nqui cfod kqqw'; // Sua senha de email SMTP
+           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+           $mail->Port = 587;
 
-        // Remetente e destinatário
-        $mail->setFrom('bruno.pisciotta43@gmail.com', 'Bruno Pisciotta');
-        $mail->addAddress('bruno.pisciotta@novotemporh.com.br', 'Breno'); // Substitua pelo e-mail do cliente
+          // Remetente e destinatário
+          $mail->setFrom('bruno.pisciotta43@gmail.com', 'Bruno Pisciotta');
+          $mail->addAddress('bruno.pisciotta@novotemporh.com.br', 'Breno'); // Substitua pelo e-mail do cliente
 
         // Conteúdo do e-mail
         $mail->isHTML(true);
-        $mail->Subject = "Novo email de $nome sobre a P2J";
+        $mail->Subject = "Novo e-mail de $nome sobre a P2J";
         $mail->Body = "
             <h1>Novo pedido de orçamento</h1>
             <p><strong>Nome:</strong> $nome</p>
@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->AltBody = "Nome: $nome\nEmail: $email\nServiço: $servico\nMensagem:\n$mensagem";
 
         $mail->send();
-        echo 'Email enviado com sucesso!';
+        echo "Email enviado com sucesso!";
     } catch (Exception $e) {
         echo "Falha ao enviar o email. Mailer Error: {$mail->ErrorInfo}";
     }
 } else {
-    echo "Método de requisição inválido.";
+    echo "<script>alert('Método de requisição inválido.'); window.history.back();</script>";
 }
 ?>
